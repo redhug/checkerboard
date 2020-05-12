@@ -16,21 +16,39 @@ export default class CheckerBoard extends Component {
     render() {
       var squares = [];
       var color = 0;
+      var innerDiv;
       for (let i = 0; i < this.state.number*this.state.number; ++i) {
+        if(i<this.state.number*2){
+            innerDiv=<span class="dot" style={{"background-color": "red"}}></span>
+        }
+        else if(i>=(this.state.number*(this.state.number-2))){
+            innerDiv=<span class="dot" style={{"background-color": "blue"}}></span>
+        }
+        else{
+            innerDiv=<span></span>
+        }
         if(i%(this.state.number*2)===0){
-            squares.push(<div className={"square square-black"}></div>);
+            squares.push(<div className={"square square-black"}>
+                {innerDiv}
+            </div>);
             color=0;
         }
         else if(i%this.state.number===0){
-            squares.push(<div className={"square square-white"}></div>);
+            squares.push(<div className={"square square-white"}>
+                {innerDiv}
+            </div>);
             color=1;
         }
         else if(color===1){
-            squares.push(<div className={"square square-black"}></div>);
+            squares.push(<div className={"square square-black"}>
+                {innerDiv}
+            </div>);
             color=0;
         }
         else{
-            squares.push(<div className={"square square-white"}></div>);
+            squares.push(<div className={"square square-white"}>
+               {innerDiv}
+            </div>);
             color=1;
         }
       }
