@@ -13,8 +13,7 @@ code {
 }
 .board {
   margin: 0 auto;
-  max-width: 416px;
-  max-height: 416px;
+ 
   background-color: blue;
 }
 .mb10{
